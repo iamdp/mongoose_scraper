@@ -1,4 +1,4 @@
-# Mongoose Scraper
+# MongoDB Scraper
 
 ## Application Name: **MongoDB Scraper**
 
@@ -10,68 +10,50 @@ This app scrapes Kijiji for posts with the term "Ikea". From this list, you can 
 
 ### App Usage
 
-- The home page shows you a list of all burgers that are ready to devour and that have been devoured.
-
-![Main Page](https://takeawalk.github.io/eat-da-burger/public/img/main.PNG)
-
-- To craft/add a burger, enter the name of the burger and click submit.
-
-![Add A Burger](https://takeawalk.github.io/eat-da-burger/public/img/add.PNG)
-
-- After submitting, the burger is added to the list of available burgers and is ready to be consumed.
-
-![Burger Added](https://takeawalk.github.io/eat-da-burger/public/img/added.PNG)
-
-- Click on the 'devour' button next to a burger to eat it. After doing so, the burger is added to the devoured (right side) column.
-
-![Devoured](https://takeawalk.github.io/eat-da-burger/public/img/devour.PNG)
+- To scape/add posts of ads from Kijiji with the term "Ikea", click on "scrape"
+- A list of posts will appear.
+- Clicking on scrape again will update the posts with recent Kijiji ads.
+- Navigate through the posts and click the save button to save posts.
+- Click on "View Saved" to see a list of your saved posts.
+- When viewing saved posts, you can click the note button to add a note to that post.
 
 ### **App Parts**
 
 #### Express Handlebars
 
-##### main.handlebars
+##### saved.handlebars
 
-This file contains the html scaffolding and defines the submission form to create a burger. It contains CDNs to jquery and bootstrap.
+Generates cards for saved posts with option to view/edit notes in the form of a modal.
 
-#### index.handlebars
+#### scraped.handlebars
 
-This file creates the burgers and buttons and arranging the burgers using handlebar logic to show 'ready to devour' burgers on the left and side and 'devoured' burgers on the right hand side.
+Generates cards for scraped posts with the option to save posts.
 
-#### connection.js
+#### Mongoose Models
 
-This file defines the connection to the sql server. A heroku/jawsdb connection is attempted first, if it fails it connects locally.
+##### Note
 
-#### orm.js
+One-to-one relationship with post. A note is applied against a post and is a great way to add comments about a post.
 
-This file makes sql calls easier by developing generic SQL statement that can be used to make calls to multiple tables. As used in this particular project, it is simplied and somewhat redundant but still relevant as a learning tool on how to use ORMs.
+##### Post
 
-#### burger.js
-
-The burger.js file is the model of the burger. This file makes references to the orm to execute calls to the sql server.
-
-#### burger_controller.js
-
-The burger_controller.js file defines the api routes for executing functions against the database.
+A post is the apps representation of a Kijiji post.
 
 #### server.js
 
-This defines the api server and serves the publicically accessible html pages.
-
-#### server-easy.js
-
-This is an unreqired file I created to demonstrate a function app without following the additional complexity of MVP models. It is unused in the production model of the app.
+Contains the server, routes and app logic.
 
 ## Built Using
 
 - [NodeJS](https://nodejs.org/en/)
-- [jQuery](https://jquery.com/)
-- [Bootstrap](https://getbootstrap.com/)
+- [Materialize CSS](https://materializecss.com/)
 - Node Packages
   - [express](https://www.npmjs.com/package/express)
   - [express-handlebars](https://www.npmjs.com/package/express-handlebars)
-  - [body-parser](https://www.npmjs.com/package/body-parser)
-  - [mysql](https://www.npmjs.com/package/mysql)
+  - [mongoose](https://mongoosejs.com/)
+  - [axios](https://www.npmjs.com/package/axios/)
+  - [cheerio](https://www.npmjs.com/package/cheerio)
+  - [dotenv](https://www.npmjs.com/package/dotenv)
 
 ## Author
 
