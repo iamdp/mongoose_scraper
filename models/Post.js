@@ -8,7 +8,8 @@ const PostSchema = new mongoose.Schema({
   },
   url: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   description: {
     type: String,
@@ -18,7 +19,8 @@ const PostSchema = new mongoose.Schema({
     type: String
   },
   saved: {
-    type: Boolean
+    type: Boolean,
+    default: false
   },
   note: {
     type: mongoose.Schema.Types.ObjectId,

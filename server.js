@@ -57,13 +57,15 @@ app.get("/scrape", (req, res) => {
       });
     });
 
-    db.Post.create(post)
-      .then(dbPost => {
-        console.log(dbPost);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    post.forEach(element => {
+      db.Post.create(element)
+        .then(dbPost => {
+          // console.log(dbPost);
+        })
+        .catch(error => {
+          console.log(error.errmsg);
+        });
+    });
 
     res.send("Scrape Complete");
   });
