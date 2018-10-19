@@ -1,0 +1,42 @@
+<div class="container">
+    <h1 class='center'>Saved Posts</h1>
+</div>
+
+{{#each this}}
+<div class="col s12 m6 l4" data-id="{{_id}}">
+    <div class="card">
+        <div class=" card-image">
+            <img src="{{imgUrl}}">
+            <a href="#{{_id}}" class="btn-floating halfway-fab waves-effect waves-light red lighten-2 modal-trigger"><i
+                    class="material-icons">note</i></a>
+        </div>
+        <div class="card-content">
+            <span class="card-title">{{title}}</span>
+            <p>{{this.description}}</p>
+        </div>
+    </div>
+</div>
+<div id="{{_id}}" class="modal">
+    <div class="modal-content">
+        <h4>View/Edit Note</h4>
+        <p>Add a note to this post.</p>
+        <div class="input-field col s12">
+            <input id="title" type="text" class="validate" value="{{note.title}}">
+            <label for=" title">Note Title</label>
+        </div>
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="notetextarea" class="materialize-textarea">{{note.body}}</textarea>
+                        <label for="notetextarea">Note Body</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="save-note modal-close waves-effect waves-green btn-flat">Submit</a>
+    </div>
+</div>
+{{/each}}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>MongoDB Scraper</title>
+</head>
+
+<body>
+    <nav class="nav-wrapper blue">
+        <div class="container">
+            <a href="/" class="brand-logo hide-on-med-and-down">MongoDB Scraper</a>
+            <ul class="right">
+                <li><a href="#modal3" id='scrape' class='btn modal-trigger'>Scrape</a></li>
+                <li><a href="/" class='btn'>View Scrapped</a></li>
+                <li><a href="./viewSavedPosts" class='btn'>View Saved</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row posts">
+            {{{body}}}
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Post Saved</h4>
+            <p>The post has been saved. Click on View Saved Posts to see your saved posts.</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="save-post modal-close waves-effect waves-green btn-flat">Okay</a>
+        </div>
+    </div>
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <h4>Posts Scrapped</h4>
+            <p>Posts for Ikea have been scraped from Kijiji.</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="save-post modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+    </div>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src='./app.js'></script>
+</body>
+
+</html>
