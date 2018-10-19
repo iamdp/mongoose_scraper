@@ -22,7 +22,9 @@ card.forEach(element => {
 });
 
 document.querySelector("#scrape").addEventListener("click", function() {
-  fetch("/scrape");
+  fetch("/scrape").then(response => {
+    location.reload();
+  });
 });
 
 document.querySelectorAll(".save-note").forEach(element => {
